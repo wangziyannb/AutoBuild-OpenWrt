@@ -10,10 +10,13 @@ name: Build_NanoPi_R2S
 on: 
   release:
     types: [published]
-
-  push:
-    branches: 
-      - master
+  
+  workflow_dispatch:
+  
+  
+  #push:
+  #  branches: 
+  #    - master
 
   schedule:
     - cron: '0 23 * * *'
@@ -75,7 +78,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-        git clone https://github.com/kenzok8/small.git package/small
+        git clone https://github.com/wangziyannb/small.git package/small
         git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
         git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
         git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
